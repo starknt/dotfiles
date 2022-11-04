@@ -1,0 +1,51 @@
+{
+  "recommendations": [
+    // my
+    "Seven1bit.vscode-ext-ansi-color-highlight",
+
+    // antfu
+    "antfu.browse-lite",
+    "antfu.iconify",
+    "antfu.unocss",
+    "antfu.vite",
+    "lokalise.i18n-ally",
+
+    // theme
+    "zhuangtongfa.material-theme",
+    "akamud.vscode-theme-onedark",
+    "akamud.vscode-theme-onelight",
+    "PKief.material-icon-theme",
+    "Equinusocio.vsc-material-theme",
+    "equinusocio.vsc-material-theme-icons",
+    "Equinusocio.vsc-community-material-theme",
+    "monokai.theme-monokai-pro-vscode",
+
+    // git
+    "donjayamanne.githistory",
+    "alefragnani.project-manager",
+    "mhutchie.git-graph",
+    "GitHub.vscode-pull-request-github",
+
+    // must
+    "dbaeumer.vscode-eslint",
+    "Vue.volar",
+    "Vue.vscode-typescript-vue-plugin",
+    "GitHub.copilot",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+
+    // Other
+    "amodio.tsl-problem-matcher",
+    "eamodio.gitlens",
+    "EditorConfig.EditorConfig",
+    "mpontus.tab-cycle",
+    "naumovs.color-highlight",
+    "richie5um2.vscode-sort-json",
+    "unional.vscode-sort-package-json",
+    "voorjaar.windicss-intellisense",
+    "znck.grammarly",
+    "yzhang.markdown-all-in-one",
+    "MS-CEINTL.vscode-language-pack-zh-hans",
+    "mrmlnc.vscode-json5"
+  ]
+}
