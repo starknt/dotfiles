@@ -8,6 +8,7 @@
     "antfu.iconify",
     "antfu.unocss",
     "antfu.vite",
+    "antfu.icons-carbon",
     "lokalise.i18n-ally",
 
     // theme
@@ -46,6 +47,6 @@
     "znck.grammarly",
     "yzhang.markdown-all-in-one",
     "MS-CEINTL.vscode-language-pack-zh-hans",
-    "mrmlnc.vscode-json5"
+    "mrmlnc.vscode-json5",
   ]
 }
