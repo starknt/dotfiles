@@ -35,6 +35,7 @@
     "usernamehw.errorlens",
     "streetsidesoftware.code-spell-checker",
     "christian-kohler.path-intellisense",
+    "formulahendry.auto-complete-tag",
 
     // Other
     "amodio.tsl-problem-matcher",
