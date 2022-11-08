@@ -19,7 +19,7 @@
     "Equinusocio.vsc-material-theme",
     "equinusocio.vsc-material-theme-icons",
     "Equinusocio.vsc-community-material-theme",
-    "monokai.theme-monokai-pro-vscode",
+    "ddiu8081.moegi-theme",
 
     // git
     "donjayamanne.githistory",
@@ -30,7 +30,6 @@
     // must
     "dbaeumer.vscode-eslint",
     "Vue.volar",
-    "Vue.vscode-typescript-vue-plugin",
     "GitHub.copilot",
     "usernamehw.errorlens",
     "streetsidesoftware.code-spell-checker",
@@ -45,10 +44,13 @@
     "naumovs.color-highlight",
     "richie5um2.vscode-sort-json",
     "unional.vscode-sort-package-json",
-    "voorjaar.windicss-intellisense",
     "znck.grammarly",
     "yzhang.markdown-all-in-one",
     "MS-CEINTL.vscode-language-pack-zh-hans",
     "mrmlnc.vscode-json5",
+    
+    // rust
+    "vadimcn.vscode-lldb",
+    "rust-lang.rust-analyzer"
   ]
 }
