@@ -4,53 +4,68 @@
     "Seven1bit.vscode-ext-ansi-color-highlight",
 
     // antfu
-    "antfu.browse-lite",
-    "antfu.iconify",
-    "antfu.unocss",
     "antfu.vite",
-    "antfu.icons-carbon",
+    "antfu.unocss",
+    "antfu.iconify",
+    "antfu.goto-alias",
+    "antfu.browse-lite",
     "lokalise.i18n-ally",
 
-    // theme
-    "zhuangtongfa.material-theme",
+    // color theme
+    "ddiu8081.moegi-theme",
     "akamud.vscode-theme-onedark",
     "akamud.vscode-theme-onelight",
-    "PKief.material-icon-theme",
     "Equinusocio.vsc-material-theme",
-    "equinusocio.vsc-material-theme-icons",
-    "Equinusocio.vsc-community-material-theme",
-    "ddiu8081.moegi-theme",
 
-    // git
-    "donjayamanne.githistory",
+    // file icon theme
+    "PKief.material-icon-theme",
+
+    // product icon theme
+    "antfu.icons-carbon",
+
+    // project manager
     "alefragnani.project-manager",
+    // git
+    "eamodio.gitlens",
     "mhutchie.git-graph",
+    "donjayamanne.githistory",
     "GitHub.vscode-pull-request-github",
 
-    // must
-    "dbaeumer.vscode-eslint",
+    // vue
     "Vue.volar",
-    "GitHub.copilot",
+
+    // must
     "usernamehw.errorlens",
-    "streetsidesoftware.code-spell-checker",
-    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "naumovs.color-highlight",
+    "EditorConfig.EditorConfig",
     "formulahendry.auto-complete-tag",
+    "christian-kohler.path-intellisense",
+    "streetsidesoftware.code-spell-checker",
+
+    // markdown
+    "yzhang.markdown-all-in-one",
+    "shd101wyy.markdown-preview-enhanced",
+
+    // tailwind
+    "austenc.tailwind-docs",
+    "bradlc.vscode-tailwindcss",
+    "bourhaouta.tailwindshades",
 
     // Other
-    "amodio.tsl-problem-matcher",
-    "eamodio.gitlens",
-    "EditorConfig.EditorConfig",
+    "znck.grammarly",
     "mpontus.tab-cycle",
-    "naumovs.color-highlight",
+    "mrmlnc.vscode-json5",
+    "amodio.tsl-problem-matcher",
     "richie5um2.vscode-sort-json",
     "unional.vscode-sort-package-json",
-    "znck.grammarly",
-    "yzhang.markdown-all-in-one",
     "MS-CEINTL.vscode-language-pack-zh-hans",
-    "mrmlnc.vscode-json5",
     
     // rust
     "vadimcn.vscode-lldb",
-    "rust-lang.rust-analyzer"
+    "rust-lang.rust-analyzer",
+
+    // code autocomplete
+    "GitHub.copilot",
   ]
 }
