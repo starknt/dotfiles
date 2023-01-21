@@ -1,2 +1,2 @@
-# vscode-settings
-My Vscode configuration.
+# dotfiles
+My dotfiles configuration.
