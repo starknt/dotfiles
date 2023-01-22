@@ -4,7 +4,14 @@ require('mason-lspconfig').setup({
 		'sumneko_lua',
 		'tsserver',
 		'graphql',
-		'rust_analyzer'
+		'rust_analyzer',
+		'tailwindcss',
+		'cssls',
+		'bashls',
+		'jsonls',
+		'volar',
+		'prismals',
+		'denols'
 	},
 
 	automatic_installation = true

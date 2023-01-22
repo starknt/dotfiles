@@ -75,6 +75,17 @@ require('lazy').setup({
   -- 'dhruvasagar/vim-prosession',
   'f-person/git-blame.nvim',
   'NvChad/nvim-colorizer.lua',
+  'simrat39/rust-tools.nvim',
+  {
+    'jose-elias-alvarez/nvim-lsp-ts-utils',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+
+  {
+    'saecki/crates.nvim',
+    version = '0.3.0',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
 })
 
 
@@ -89,6 +100,7 @@ require('p-config.p-telescope')
 require('p-config.p-bookmark')
 require('p-config.p-lspkind')
 require('p-config.p-cmp')
+require('p-config.p-crates')
 require('p-config.p-snip')
 require('p-config.p-treesitter')
 require('p-config.p-colorizer')
