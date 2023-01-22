@@ -1,7 +1,8 @@
-local opt = vim.opt
+require('basic')
+require('keymap')
 
-opt.number = true
-opt.relativenumber = true
+require('plugins')
 
-opt.tabstop = 2
-opt.termguicolors = true
+require('text')
+require('color')
+require('style')
