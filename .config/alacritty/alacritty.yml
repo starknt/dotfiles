@@ -1,0 +1,35 @@
+import:
+  # color schema
+ - ~/.config/alacritty/themes/themes/iterm.yaml
+  # fonts
+ - ~/.config/alacritty/fonts.yaml
+
+window:
+  dimensions:
+    columns: 90
+    lines: 25
+  opacity: 0.86
+  title: starknt terminal
+  dynamic_title: true
+  decorations_theme_variant: dark
+  padding:
+    x: 2
+    y: 2
+
+cursor:
+  style:
+    shape: Beam
+    blinking: Always
+  thickness: 0.15
+
+draw_bold_text_with_bright_colors: true
+
+selection:
+  semantic_escape_chars: ',│`|:"'' ()[]{}<>'
+  save_to_clipboard: true
+
+live_config_reload: true
+
+key_bindings:
+  - { key: V, mods: command, action: Paste }
+  - { key: C, mods: command, action: Copy }
