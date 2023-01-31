@@ -71,6 +71,7 @@ require('lazy').setup({
   'folke/todo-comments.nvim',
   'numToStr/Comment.nvim',
   'akinsho/toggleterm.nvim',
+  'psliwka/vim-smoothie',
   -- 'tpope/vim-obsession',
   -- 'dhruvasagar/vim-prosession',
   'f-person/git-blame.nvim',
