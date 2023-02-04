@@ -29,7 +29,7 @@
     "extensions.ignoreRecommendations": true,
     "window.titleBarStyle": "custom",
     "editor.accessibilitySupport": "off",
-    "editor.cursorSmoothCaretAnimation": true,
+    "editor.cursorSmoothCaretAnimation": "on",
     "editor.find.addExtraSpaceOnTop": false,
     "editor.guides.bracketPairs": "active",
     "editor.inlineSuggest.enabled": true,
