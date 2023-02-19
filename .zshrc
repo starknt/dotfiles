@@ -179,7 +179,7 @@ function serve() {
 }
 
 # pnpm
-export PNPM_HOME="/home/starknt/.local/share/pnpm"
+export PNPM_HOME="~/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
@@ -192,7 +192,7 @@ alias vi=nvim
 alias vim=nvim
 
 # bun completions
-[ -s "/home/starknt/.bun/_bun" ] && source "/home/starknt/.bun/_bun"
+[ -s "~/.bun/_bun" ] && source "~/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
