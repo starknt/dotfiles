@@ -1,7 +1,7 @@
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\iterm2.omp.json" | Invoke-Expression
 
 #-------------------------------  Set utils code BEGIN ------------------------------
-function basename($1) {  return $(split-path "$1" -leaf).split(".")[0] }
+function basename($1, $2="") {  return $(split-path "$1" -leaf).trimEnd("$2") }
 
 function mkdir { new-item -Path . -Name "$args" -ItemType "directory" }
 #-------------------------------  Set utils code END  -------------------------------
@@ -77,4 +77,3 @@ function clonei { i && clone $args && code . }
 function cloner { repros && clone $args && code . }
 function clonef { forks && clone $args && code . }
 function codei { i && code $args && cd - }
-
