@@ -47,14 +47,14 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 # antfu/ni
 Remove-Item Alias:ni  -Force -ErrorAction Ignore
 Remove-Item Alias:dir -Force -ErrorAction Ignore
-Remove-Item Alias:ls -Force -ErrorAction Ignore
+Remove-Item Alias:ls  -Force -ErrorAction Ignore
 
 # -------------------------------- #
 # Alias:
 # -------------------------------- #
-Set-Alias -Name git -Value hub
-Set-Alias -Name nx -Value nix
-Set-Alias -Name mv -Value move
+Set-Alias git hub
+Set-Alias nx  nix
+Set-Alias mv  move
 
 function grt  { cd $(git rev-parse --show-toplevel) }
 function gs   { git status $args }
