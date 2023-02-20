@@ -4,6 +4,34 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\iterm2.omp.json" | Invoke-E
 function basename($1, $2="") {  return $(split-path "$1" -leaf).trimEnd("$2") }
 
 function mkdir { new-item -Path . -Name "$args" -ItemType "directory" }
+
+function ls([switch]$a,[switch]$l,[switch]$r) {
+  $mode = 0
+  [string]$path = "$args"
+  if($args.length -eq 0) {
+    $path = "."
+  }
+  if($a) {
+    $mode = $mode -bor 1
+  }
+  if($l) {
+    $mode = $mode -bor 2
+  }
+  if($r) {
+    $mode = $mode -bor 4
+  }
+
+  switch( $mode ) {
+    0 { get-childitem -Path $path -Name         } # default ls command output
+    1 { get-childitem -Path $path -Name -Force  } # only all -a
+    2 { get-childitem -Path $path               } # only list -l
+    3 { get-childitem -Path $path -Force        } # -a + -l
+    4 { get-childitem -Path $path -Name -s } # only recursive -r
+    5 { get-childitem -Path $path -Name -s -Force } # -a + -r
+    6 { get-childitem -Path $path -s -Force } # -l + -r
+    # 7 { get-childitem -Path $path -Name -s -Force } # -r + -l + -a
+  }
+}
 #-------------------------------  Set utils code END  -------------------------------
 
 #-------------------------------  Set Hot-keys BEGIN  -------------------------------
@@ -19,6 +47,7 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 # antfu/ni
 Remove-Item Alias:ni  -Force -ErrorAction Ignore
 Remove-Item Alias:dir -Force -ErrorAction Ignore
+Remove-Item Alias:ls -Force -ErrorAction Ignore
 
 # -------------------------------- #
 # Alias:
@@ -77,3 +106,13 @@ function clonei { i && clone $args && code . }
 function cloner { repros && clone $args && code . }
 function clonef { forks && clone $args && code . }
 function codei { i && code $args && cd - }
+
+# Import the Chocolatey Profile that contains the necessary code to enable
+# tab-completions to function for `choco`.
+# Be aware that if you are missing these lines from your profile, tab completion
+# for `choco` will not function.
+# See https://ch0.co/tab-completion for details.
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}
