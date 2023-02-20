@@ -70,6 +70,8 @@ function gmv  { git mv $args }
 
 function main { git checkout main }
 
+function op($1=".") { Invoke-Item $1 }
+
 function nio { ni --prefer-offline }
 function s { nr start }
 function d { nr dev }
