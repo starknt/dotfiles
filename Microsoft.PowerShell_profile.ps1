@@ -48,6 +48,7 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Remove-Item Alias:ni  -Force -ErrorAction Ignore
 Remove-Item Alias:dir -Force -ErrorAction Ignore
 Remove-Item Alias:ls  -Force -ErrorAction Ignore
+Remove-Item Alias:gp  -Force -ErrorAction Ignore
 
 # -------------------------------- #
 # Alias:
