@@ -1,7 +1,7 @@
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\iterm2.omp.json" | Invoke-Expression
 
 #-------------------------------  Set utils code BEGIN ------------------------------
-function basename($1, $2="") {  return $(split-path "$1" -leaf).trimEnd("$2") }
+function basename([string]$1, $2="") { return $(split-path "$1" -leaf) -replace "$2" }
 
 function mkdir { new-item -Path . -Name "$args" -ItemType "directory" }
 
@@ -32,6 +32,8 @@ function ls([switch]$a,[switch]$l,[switch]$r) {
     # 7 { get-childitem -Path $path -Name -s -Force } # -r + -l + -a
   }
 }
+
+function touch { new-item -Path $args -ItemType "file" }
 #-------------------------------  Set utils code END  -------------------------------
 
 #-------------------------------  Set Hot-keys BEGIN  -------------------------------
@@ -109,13 +111,3 @@ function clonei { i && clone $args && code . }
 function cloner { repros && clone $args && code . }
 function clonef { forks && clone $args && code . }
 function codei { i && code $args && cd - }
-
-# Import the Chocolatey Profile that contains the necessary code to enable
-# tab-completions to function for `choco`.
-# Be aware that if you are missing these lines from your profile, tab completion
-# for `choco` will not function.
-# See https://ch0.co/tab-completion for details.
-$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
-if (Test-Path($ChocolateyProfile)) {
-  Import-Module "$ChocolateyProfile"
-}
