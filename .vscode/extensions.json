@@ -4,12 +4,9 @@
     "Seven1bit.vscode-ext-ansi-color-highlight",
 
     // antfu
-    "antfu.vite",
     "antfu.unocss",
     "antfu.iconify",
     "antfu.goto-alias",
-    "antfu.browse-lite",
-    "lokalise.i18n-ally",
 
     // color theme
     "ddiu8081.moegi-theme",
@@ -20,15 +17,14 @@
     // file icon theme
     "PKief.material-icon-theme",
 
-    // product icon theme
-    "antfu.icons-carbon",
-
     // project manager
     "alefragnani.project-manager",
     // git
     "eamodio.gitlens",
     "mhutchie.git-graph",
     "donjayamanne.githistory",
+
+    // github
     "GitHub.vscode-pull-request-github",
 
     // vue

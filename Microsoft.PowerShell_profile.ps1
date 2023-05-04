@@ -1,10 +1,8 @@
-oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\iterm2.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.json" | Invoke-Expression
 
 #-------------------------------  Set utils code BEGIN ------------------------------
 function basename([string]$1, $2="") { return $(split-path "$1" -leaf) -replace "$2" }
-
 function mkdir { new-item -Path . -Name "$args" -ItemType "directory" }
-
 function ls([switch]$a,[switch]$l,[switch]$r) {
   $mode = 0
   [string]$path = "$args"
@@ -32,12 +30,11 @@ function ls([switch]$a,[switch]$l,[switch]$r) {
     # 7 { get-childitem -Path $path -Name -s -Force } # -r + -l + -a
   }
 }
-
 function touch { new-item -Path $args -ItemType "file" }
 #-------------------------------  Set utils code END  -------------------------------
 
 #-------------------------------  Set Hot-keys BEGIN  -------------------------------
-Set-PSReadLineOption -PredictionSource History
+# Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -HistorySearchCursorMovesToEnd
 Set-PSReadLineKeyHandler -Key "Tab" -Function MenuComplete
 Set-PSReadlineKeyHandler -Key "Ctrl+d" -Function ViExit
@@ -55,10 +52,37 @@ Remove-Item Alias:gp  -Force -ErrorAction Ignore
 # -------------------------------- #
 # Alias:
 # -------------------------------- #
-Set-Alias git hub
+# Set-Alias git hub
 Set-Alias nx  nix
 Set-Alias mv  move
 
+function gco{ git checkout }
+function gcob{ git checkout -b }
+function gb{ git branch }
+function gbd{ git branch -d }
+function grb{ git rebase }
+function grbom{ git rebase origin/master }
+function grbc{ git rebase --continue }
+function gl{ git log }
+function glo{ git log --oneline --graph }
+function grh{ git reset HEAD }
+function grh1{ git reset HEAD~1 }
+function ga{ git add }
+function gA{ git add -A }
+function gc{ git commit }
+function gcm{ git commit -m }
+function gca{ git commit -a }
+function gcam{ git add -A && git commit -m }
+function gfrb{ git fetch origin && git rebase origin/master }
+function gxn{ git clean -dn }
+function gx{ git clean -df }
+function gsha{ git rev-parse HEAD | pbcopy }
+
+function ghci { gh run list -L 1 }
+
+function glp() {
+  git --no-pager log -$1
+}
 function grt  { cd $(git rev-parse --show-toplevel) }
 function gs   { git status $args }
 function gp   { git push $args }
@@ -77,6 +101,7 @@ function op($1=".") { Invoke-Item $1 }
 function nio { ni --prefer-offline }
 function s { nr start }
 function d { nr dev }
+function b { nr build}
 function t { nr test }
 function tu { nr test -u }
 function tw { nr test --watch }
@@ -92,10 +117,13 @@ function release { nr release }
 # `~/workspace/i` for my projects
 # `~/workspace/f` for forks
 # `~/workspace/r` for reproductions
+# `~/workspace/l` for learn
 # -------------------------------- #
-function i { cd e:/workspace/i/$args }
-function repros { cd e:/workspace/r/$args }
-function forks { cd e:/workspace/f/$args }
+$workspace="e:/workspace"
+function i { cd $workspace/i/$args }
+function repros { cd $workspace/r/$args }
+function forks { cd $workspace/f/$args }
+function learn { cd $workspace/l/$args }
 
 function dir {  mkdir "$args" && cd "$args" }
 
@@ -106,8 +134,38 @@ function clone($1, $2) {
     hub clone $1 $2 $args && cd "$2"
   }
 }
-
 function clonei { i && clone $args && code . }
 function cloner { repros && clone $args && code . }
 function clonef { forks && clone $args && code . }
 function codei { i && code $args && cd - }
+function coder { i && code -r $args && cd - }
+
+# function wsaproxy() { 
+#   $WinNetIP=$(Get-NetIPAddress -InterfaceAlias 'vEthernet (WSL)' -AddressFamily IPV4)
+#   adb connect 127.0.0.1:58526
+#   adb shell settings put global http_proxy "$($WinNetIP.IPAddress):7890"
+#   adb shell settings put global https_proxy "$($WinNetIP.IPAddress):7890"
+# }
+
+function proxy() {
+  $Env:http_proxy="http://127.0.0.1:7890"
+  $Env:https_proxy="http://127.0.0.1:7890"
+
+  $WinNetIP=$(Get-NetIPAddress -InterfaceAlias 'vEthernet (WSL)' -AddressFamily IPV4)
+  if($WinNetIP) {
+    adb connect 127.0.0.1:58526
+    adb shell settings put global http_proxy "$($WinNetIP.IPAddress):7890"
+    adb shell settings put global https_proxy "$($WinNetIP.IPAddress):7890"
+  }
+}
+
+function noproxy() {
+ # TODO: remove proxy setting in the environment
+}
+
+function update() {
+  # pnpm update
+  iwr https://get.pnpm.io/install.ps1 -useb | iex
+  # update global node_modules
+  pnpm -g upgrade
+}
