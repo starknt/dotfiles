@@ -80,9 +80,7 @@ function gsha{ git rev-parse HEAD | pbcopy }
 
 function ghci { gh run list -L 1 }
 
-function glp() {
-  git --no-pager log -$1
-}
+function glp() { git --no-pager log -$1 }
 function grt  { cd $(git rev-parse --show-toplevel) }
 function gs   { git status $args }
 function gp   { git push $args }
@@ -119,6 +117,8 @@ function release { nr release }
 # `~/workspace/r` for reproductions
 # `~/workspace/l` for learn
 # -------------------------------- #
+
+## change the working directory
 $workspace="e:/workspace"
 function i { cd $workspace/i/$args }
 function repros { cd $workspace/r/$args }
