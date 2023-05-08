@@ -2,7 +2,9 @@ oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\powerlevel10k_rainbow.omp.j
 
 #-------------------------------  Set utils code BEGIN ------------------------------
 function basename([string]$1, $2="") { return $(split-path "$1" -leaf) -replace "$2" }
+
 function mkdir { new-item -Path . -Name "$args" -ItemType "directory" }
+
 function ls([switch]$a,[switch]$l,[switch]$r) {
   $mode = 0
   [string]$path = "$args"
@@ -30,7 +32,9 @@ function ls([switch]$a,[switch]$l,[switch]$r) {
     # 7 { get-childitem -Path $path -Name -s -Force } # -r + -l + -a
   }
 }
+
 function touch { new-item -Path $args -ItemType "file" }
+function op([string]$path=".") { Invoke-Item  $path }
 #-------------------------------  Set utils code END  -------------------------------
 
 #-------------------------------  Set Hot-keys BEGIN  -------------------------------
@@ -80,7 +84,9 @@ function gsha{ git rev-parse HEAD | pbcopy }
 
 function ghci { gh run list -L 1 }
 
-function glp() { git --no-pager log -$1 }
+function glp() {
+  git --no-pager log -$1
+}
 function grt  { cd $(git rev-parse --show-toplevel) }
 function gs   { git status $args }
 function gp   { git push $args }
@@ -117,8 +123,6 @@ function release { nr release }
 # `~/workspace/r` for reproductions
 # `~/workspace/l` for learn
 # -------------------------------- #
-
-## change the working directory
 $workspace="e:/workspace"
 function i { cd $workspace/i/$args }
 function repros { cd $workspace/r/$args }
@@ -140,32 +144,30 @@ function clonef { forks && clone $args && code . }
 function codei { i && code $args && cd - }
 function coder { i && code -r $args && cd - }
 
-# function wsaproxy() { 
-#   $WinNetIP=$(Get-NetIPAddress -InterfaceAlias 'vEthernet (WSL)' -AddressFamily IPV4)
-#   adb connect 127.0.0.1:58526
-#   adb shell settings put global http_proxy "$($WinNetIP.IPAddress):7890"
-#   adb shell settings put global https_proxy "$($WinNetIP.IPAddress):7890"
-# }
+# variables
+# $WinNetIP=$(Get-NetIPAddress -InterfaceAlias 'vEthernet (WSL)' -AddressFamily IPV4)
+# adb connect 127.0.0.1:58526 && adb shell settings put global http_proxy "$($WinNetIP.IPAddress):7890"
+# adb shell settings put global http_proxy :0
+
+function wsaproxy() { 
+  $WinNetIP=$(Get-NetIPAddress -InterfaceAlias 'vEthernet (WSL)' -AddressFamily IPV4)
+  adb connect 127.0.0.1:58526
+  adb shell settings put global http_proxy "$($WinNetIP.IPAddress):7890"
+  adb shell settings put global https_proxy "$($WinNetIP.IPAddress):7890"
+}
 
 function proxy() {
   $Env:http_proxy="http://127.0.0.1:7890"
   $Env:https_proxy="http://127.0.0.1:7890"
-
-  $WinNetIP=$(Get-NetIPAddress -InterfaceAlias 'vEthernet (WSL)' -AddressFamily IPV4)
-  if($WinNetIP) {
-    adb connect 127.0.0.1:58526
-    adb shell settings put global http_proxy "$($WinNetIP.IPAddress):7890"
-    adb shell settings put global https_proxy "$($WinNetIP.IPAddress):7890"
-  }
 }
 
 function noproxy() {
- # TODO: remove proxy setting in the environment
+
 }
 
 function update() {
   # pnpm update
   iwr https://get.pnpm.io/install.ps1 -useb | iex
   # update global node_modules
-  pnpm -g upgrade
+  ni -g upgrade
 }
